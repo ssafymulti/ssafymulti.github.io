@@ -666,8 +666,9 @@ const { counts, weakest, strongest } = analysis;
 
 document.getElementById('screen1').classList.remove('active');
 document.getElementById('screen-loading').classList.add('active');
+history.pushState({ screen: 'result' }, '');
 
-setTimeout(() => {
+resultTimer = setTimeout(() => {
 document.getElementById('screen-loading').classList.remove('active');
 document.getElementById('screen-result').classList.add('active');
 document.querySelector('.container').classList.add('on-result');
@@ -683,6 +684,20 @@ track('result_view', {
 
 }, 2000);
 }
+
+// 결과로 넘어갈 때 방문 기록을 하나 쌓아 두고(startTest의 pushState),
+// 뒤로가기를 누르면 사이트를 나가는 대신 첫 화면으로 돌아온다. 입력한 값은 그대로 남는다.
+let resultTimer = null;
+function goHome() {
+  clearTimeout(resultTimer);  // 로딩 중에 뒤로가기를 눌러도 결과 화면이 뜨지 않게
+  document.getElementById('screen-loading').classList.remove('active');
+  document.getElementById('screen-result').classList.remove('active');
+  document.getElementById('screen1').classList.add('active');
+  document.querySelector('.container').classList.remove('on-result');
+  closeImgModal();
+  scrollTo(0, 0);
+}
+window.addEventListener('popstate', goHome);
 
 let pendingBuff = null;
 
