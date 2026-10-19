@@ -72,6 +72,7 @@ body { background-color: #F9F3FF; color: #333; overflow-x: hidden; display: flex
 .container { max-width: 480px; width: 100%; background: #fff; min-height: 100vh; position: relative; box-shadow: 0 0 20px rgba(0,0,0,0.05); overflow: hidden; }
 .screen { display: none; padding: 30px 20px; flex-direction: column; align-items: center; min-height: 100vh; }
 .screen.active { display: flex; }
+#screen1 { background: #F9F3FF; }  /* 첫 화면만 연보라, 로딩·결과 화면은 흰색 */
 .title-box { text-align: center; margin-top: 50px; margin-bottom: 30px; }
 .title-box h1 { font-size: 28px; color: #7B61FF; line-height: 1.4; text-shadow: 2px 2px 0px #E5D9F2;}
 .input-group { width: 100%; margin-bottom: 20px; }
@@ -256,9 +257,6 @@ body { background-color: #F9F3FF; color: #333; overflow-x: hidden; display: flex
 .flip-card-back p { font-size: 13px; line-height: 1.55; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px; word-break: keep-all; }
 .charm-closing { margin-top: 12px; font-size: 15px; font-weight: bold; letter-spacing: -0.4px; line-height: 1.45; word-break: keep-all; }
 
-.container.on-result .floating-emoji { display: none; }
-.floating-emoji { position: absolute; font-size: 30px; opacity: 0.6; animation: float 3s ease-in-out infinite; z-index: 0; pointer-events: none; }
-@keyframes float { 0% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(10deg); } 100% { transform: translateY(0px) rotate(0deg); } }
 
 /* ===== v4: 공유 영역 ===== */
 .share-box { width: 100%; margin: -12px 0 30px; text-align: center; }
@@ -284,7 +282,7 @@ body { background-color: #F9F3FF; color: #333; overflow-x: hidden; display: flex
 .tie-note[hidden] { display: none; }
 .tie-note b { color: #7B61FF; }
 [role="button"]:focus-visible, .cta-btn:focus-visible, .start-btn:focus-visible { outline: 3px solid #7B61FF; outline-offset: 3px; }
-@media (prefers-reduced-motion: reduce) { .cta-btn, .floating-emoji, .loading-text { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .cta-btn, .loading-text { animation: none; } }
 /* v10: 차트 안에서 바로 SSAFY 버프 */
 .chart-desc { text-align: center; font-size: 14px; margin-top: 15px; color: #7B61FF; font-weight: bold; background: #F4FAFF; padding: 10px; border-radius: 10px; line-height: 1.6; }
 .buff-btn { display: block; width: 100%; margin-top: 10px; padding: 14px; border: none; border-radius: 12px; font-size: 16px; font-weight: 800; font-family: 'Pretendard', sans-serif; cursor: pointer; color: #7A3E00; background: repeating-linear-gradient(45deg, #FFD54F, #FFD54F 12px, #FFCA28 12px, #FFCA28 24px); box-shadow: 0 6px 16px rgba(255, 179, 0, 0.35); animation: buffBtnPulse 1.6s ease-in-out infinite; }
