@@ -2,7 +2,7 @@
 // ▼ v4 배포 설정 — 이 블록만 수정하면 됩니다
 // ===================================================================
 const CONFIG = {
-  SITE_URL:   'https://YOUR-DOMAIN/',          // 이 테스트가 올라갈 실제 주소 (결과 사진 하단에 표시)
+  SITE_URL:   'ssafymulti.github.io',          // 이 테스트가 올라갈 실제 주소 (결과 사진 하단에 표시)
   CTA_URL:    'https://www.ssafy.com',         // 17기 지원 페이지 주소가 확정되면 교체 권장
   CAMPAIGN:   'ssafy17_recruit',               // utm_campaign 값
   GA_ID:      ''                               // GA4 측정 ID (예: 'G-XXXXXXXXXX'). 비워두면 GA 미로드
