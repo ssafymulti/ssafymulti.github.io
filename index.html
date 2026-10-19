@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="삼성청년SW·AI아카데미(SSAFY)">
 <meta property="og:title" content="나의 취업 사주와 SSAFY 17기의 궁합은?">
-<meta property="og:description" content="생년월일로 보는 나의 오행 밸런스, 내 강점에 맞는 SSAFY 활용법까지 30초 만에 확인해보세요 🧭">
+<meta property="og:description" content="생년월일로 보는 나의 오행 밸런스, 내 강점에 맞는 SSAFY 활용법까지 30초 만에 확인해보세요">
 <meta property="og:url" content="https://YOUR-DOMAIN/">
 <meta property="og:image" content="https://YOUR-DOMAIN/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -264,7 +264,7 @@ body { background-color: #F9F3FF; color: #333; overflow-x: hidden; display: flex
 <div id="screen1" class="screen active" style="z-index: 10;">
 <div class="title-box">
 <h1>나의 취업 사주와<br>SSAFY 17기의 궁합은?</h1>
-<p style="margin-top: 10px; color: #777; font-size: 14px;">생년월일로 보는 나의 오행(五行) 밸런스, 재미로 즐겨보세요 🧭</p>
+<p style="margin-top: 10px; color: #777; font-size: 14px;">생년월일로 보는 나의 오행(五行) 밸런스, 재미로 즐겨보세요</p>
 </div>
 <div class="input-group"><label>이름</label><input type="text" id="userName" placeholder="이름을 입력해봐!"></div>
 <div class="input-group"><label>생년월일 (양력 기준)</label>
@@ -291,25 +291,25 @@ body { background-color: #F9F3FF; color: #333; overflow-x: hidden; display: flex
 <div class="jasi-pick" id="jasiPick" hidden>
 <p class="jasi-q">자정 전에 태어났어, 후에 태어났어?</p>
 <div class="jasi-opts" role="radiogroup" aria-label="자시 출생 시각">
-<button type="button" class="jasi-opt" data-v="자" role="radio" aria-checked="false">🌙 자정 전<small>23:30 ~ 23:59</small></button>
-<button type="button" class="jasi-opt" data-v="자0" role="radio" aria-checked="false">🌅 자정 후<small>00:00 ~ 01:29</small></button>
+<button type="button" class="jasi-opt" data-v="자" role="radio" aria-checked="false">자정 전<small>23:30 ~ 23:59</small></button>
+<button type="button" class="jasi-opt" data-v="자0" role="radio" aria-checked="false">자정 후<small>00:00 ~ 01:29</small></button>
 </div>
 <p class="jasi-hint">생년월일은 태어난 날짜 그대로 입력하면 돼!</p>
 <div class="date-msg" id="jasiMsg"></div>
 </div>
 </div>
-<button class="start-btn" onclick="startTest()">내 취업 사주 긁어보기 🚀</button>
+<button class="start-btn" onclick="startTest()">내 취업 사주 긁어보기</button>
 </div>
 
 <div id="screen-loading" class="screen">
-<div class="loading-text">만세력 사주 원국 분석 중... 🌌<br><br><span style="font-size: 40px;">📜🤖💻</span></div>
+<div class="loading-text">만세력 사주 원국 분석 중...<br><br><span style="font-size: 40px;">📜🤖💻</span></div>
 </div>
 
 <div id="screen-result" class="screen" style="z-index: 10;">
 
 <!-- 5-2 출생시간 미상 안내 (해당 시에만 노출) -->
-<p class="time-unknown-notice" id="timeUnknownNotice" hidden>⏰ 출생시간을 몰라 시주(時柱)를 빼고 여섯 글자로 계산했어요</p>
-<p class="time-unknown-notice" id="termNotice" hidden>🌗 절기가 바뀌는 날 태어나서, 정확한 출생 시각에 따라 월주(月柱)가 달라질 수 있어요</p>
+<p class="time-unknown-notice" id="timeUnknownNotice" hidden>출생시간을 몰라 시주(時柱)를 빼고 여섯 글자로 계산했어요</p>
+<p class="time-unknown-notice" id="termNotice" hidden>절기가 바뀌는 날 태어나서, 정확한 출생 시각에 따라 월주(月柱)가 달라질 수 있어요</p>
 
 <!-- ① 일주 코드명 배너 -->
 <div class="ilju-banner" id="iljuBanner">
@@ -328,7 +328,7 @@ body { background-color: #F9F3FF; color: #333; overflow-x: hidden; display: flex
 
 <!-- ② 십신 분포도 차트 -->
 <div class="chart-card" id="chartCard">
-<h3 style="margin-bottom: 4px; text-align: center; color: #555;">📊 내 사주 오행 분포</h3>
+<h3 style="margin-bottom: 4px; text-align: center; color: #555;">내 사주 오행 분포</h3>
 <p id="chartSub" style="text-align:center; font-size:12px; color:#999; margin-bottom:16px; line-height:1.5;"></p>
 <div class="bar-row mok"><div class="bar-label"><b>목(木)</b><small id="sub-mok">-</small></div><div class="bar-bg"><div class="bar-orig" id="orig-mok"></div><div class="bar-buff" id="buff-mok">SSAFY 버프!</div></div><div class="bar-desc" id="val-mok">0%</div></div>
 <div class="bar-row hwa"><div class="bar-label"><b>화(火)</b><small id="sub-hwa">-</small></div><div class="bar-bg"><div class="bar-orig" id="orig-hwa"></div><div class="bar-buff" id="buff-hwa">SSAFY 버프!</div></div><div class="bar-desc" id="val-hwa">0%</div></div>
@@ -344,10 +344,10 @@ body { background-color: #F9F3FF; color: #333; overflow-x: hidden; display: flex
 <div class="summary-box" id="summaryBox">
 <p class="summary-lead" id="summaryLead"></p>
 <div class="trait-list">
-<div class="trait-item"><span class="trait-tag tag-point">✨ 강점</span><p id="traitPoint"></p></div>
-<div class="trait-item"><span class="trait-tag tag-weak">🌱 성장 포인트</span><p id="traitWeak"></p></div>
-<div class="trait-item"><span class="trait-tag tag-learn">📚 학습</span><p id="traitLearn"></p></div>
-<div class="trait-item"><span class="trait-tag tag-job">💼 직무</span><p id="traitJob"></p></div>
+<div class="trait-item"><span class="trait-tag tag-point">강점</span><p id="traitPoint"></p></div>
+<div class="trait-item"><span class="trait-tag tag-weak">성장 포인트</span><p id="traitWeak"></p></div>
+<div class="trait-item"><span class="trait-tag tag-learn">학습</span><p id="traitLearn"></p></div>
+<div class="trait-item"><span class="trait-tag tag-job">직무</span><p id="traitJob"></p></div>
 </div>
 <div class="highlight-line" id="highlightLine"></div>
 </div>
@@ -375,7 +375,7 @@ body { background-color: #F9F3FF; color: #333; overflow-x: hidden; display: flex
 <div class="section-card weak">
 <div class="section-title weak-title" id="weakTitle"></div>
 <p class="catch-line weak-catch" id="weakCatch"></p>
-<div class="sub-block pink"><span class="sub-label" id="weakSubLabel">🌱 성장 포인트</span><span id="weakDesc"></span></div>
+<div class="sub-block pink"><span class="sub-label" id="weakSubLabel">성장 포인트</span><span id="weakDesc"></span></div>
 <div class="sub-block blue sealed" id="weakSeal" onclick="unseal()" role="button" tabindex="0" aria-label="SSAFY가 키워주는 것 열기">
 <div class="seal-cover">
 <div class="seal-lock">🔒</div>
@@ -394,17 +394,17 @@ body { background-color: #F9F3FF; color: #333; overflow-x: hidden; display: flex
 </div>
 
 <!-- ⑦ 행운 부적 플립카드 -->
-<div class="talisman-title">🧧 취업 성공을 위한 나의 부적</div>
+<div class="talisman-title">취업 성공을 위한 나의 부적</div>
 <div class="card-container" id="talismanCard" onclick="flipTalisman()" role="button" tabindex="0" aria-label="나의 취업 부적 뒤집기">
 <div class="flip-card-inner">
-<div class="flip-card-front"><span style="font-size: 60px;">🧧</span><h3>나의 취업 부적</h3><p>터치해서 긁어보기! 🪙</p></div>
+<div class="flip-card-front"><span style="font-size: 60px;">🧧</span><h3>나의 취업 부적</h3><p>터치해서 긁어보기!</p></div>
 <div class="flip-card-back" id="talismanBack"></div>
 </div>
 </div>
 
 <!-- ⑦ CTA 버튼 -->
 <p class="buff-confirm" id="buffConfirmText"></p>
-<a href="https://www.ssafy.com" class="cta-btn" id="ctaBtn" target="_blank" rel="noopener">내 사주가 점지한 SSAFY 17기<br>🚀 지금 당장 탑승하기 🚀</a>
+<a href="https://www.ssafy.com" class="cta-btn" id="ctaBtn" target="_blank" rel="noopener">내 사주가 점지한 SSAFY 17기<br>지금 당장 탑승하기</a>
 
 <!-- v4: 결과 공유 -->
 <div class="share-box">
@@ -983,7 +983,7 @@ function showDateMsg(msg, focusEl) {
 function readBirthDate() {
   const y = +YY().value, m = +MM().value, d = +DD().value;
   if (!YY().value || !MM().value || !DD().value)
-    return { ok: false, msg: '생년월일을 모두 입력해줘! 😎', focus: !YY().value ? YY() : (!MM().value ? MM() : DD()) };
+    return { ok: false, msg: '생년월일을 모두 입력해줘!', focus: !YY().value ? YY() : (!MM().value ? MM() : DD()) };
   if (y < 1900 || y > 2100)
     return { ok: false, msg: '연도는 1900~2100 사이로 입력해줘!', focus: YY() };
   if (m < 1 || m > 12)
@@ -1089,7 +1089,7 @@ if (!birth.ok) { showDateMsg(birth.msg, birth.focus); return; }
 showDateMsg('');
 
 if (timeStr === '자시') {
-  if (!jasiChoice) { setJasiMsg('자정 전인지 후인지 골라줘! 🌙'); return; }
+  if (!jasiChoice) { setJasiMsg('자정 전인지 후인지 골라줘!'); return; }
   timeStr = jasiChoice;
 }
 
@@ -1209,11 +1209,11 @@ const weakLabel = labelOf(weakestKey, dayOheng);
 const strongLabel = labelOf(strongestKey, dayOheng);
 
 // ①-2 결과 배지 + 간략 분석 말풍선 (강점 → 성장 포인트 순)
-document.getElementById('resultBadge').innerText = `⚡ ${CONTENT.badge[strongestKey]} ⚡`;
+document.getElementById('resultBadge').innerText = `${CONTENT.badge[strongestKey]}`;
 document.getElementById('resultMeme').innerHTML =
   `만세력 분석 결과, <strong>${strongOheng}(${OHENG_INFO[strongOheng].hanja})</strong> 기운이 강하고 `
   + `<strong>${weakOheng}(${OHENG_INFO[weakOheng].hanja})</strong> 기운은 앞으로 더 키워가면 좋겠네?!<br>`
-  + `SSAFY에서 강점은 살리고, 성장 포인트는 키워보자! 🍀`;
+  + `SSAFY에서 강점은 살리고, 성장 포인트는 키워보자!`;
 
 // 차트 부제 — '내 오행' 태그를 없애면서 '(나 자신 포함)' 표기도 함께 뺐다.
 // 캐릭터가 일간이 아니라 강점·성장 포인트 기준이라, 일간을 따로 짚을 필요가 없다.
@@ -1274,7 +1274,7 @@ document.getElementById('talismanBack').innerHTML =
   + `<div class="charm-closing">${ch.closing}</div>`;
 
 // ② 오행 분포도 차트 - 진입 시에는 실제 퍼센트만 표시 (버프 연출은 부적을 긁는 시점에 트리거)
-document.getElementById('chartDesc').innerHTML = `내 만세력 사주 분석 완료 🧐<br>이제 SSAFY 버프 받아볼까?`;
+document.getElementById('chartDesc').innerHTML = `내 만세력 사주 분석 완료<br>이제 SSAFY 버프 받아볼까?`;
 const buffBtn = document.getElementById('buffBtn');
 buffBtn.hidden = false; buffBtn.classList.remove('done'); buffBtn.innerHTML = '⚡ SSAFY 버프 받기 ⚡';
 buffOn = false;
@@ -1305,7 +1305,7 @@ if (analysis.strongTies.length > 1)
 if (analysis.weakTies.length > 1)
   tieLines.push(`${byCycle(analysis.weakTies).map(ohengName).join('·')}${iga(byCycle(analysis.weakTies).pop())} ${counts[weakestKey]}글자로 같지만, 숨은 기운까지 보면 <b>${ohengName(weakestKey)}</b>${iga(weakestKey)} 가장 적어요`);
 const tieNote = document.getElementById('tieNote');
-tieNote.innerHTML = tieLines.map(t => `🔍 ${t}`).join('<br>');
+tieNote.innerHTML = tieLines.map(t => `${t}`).join('<br>');
 tieNote.hidden = tieLines.length === 0;
 
 
@@ -1389,7 +1389,7 @@ function toggleBuff() {
       val.style.color = '#FF3366';
       val.innerText = percentages[slug].toFixed(1) + '%';
     });
-    document.getElementById('chartDesc').innerHTML = `내 만세력 사주 분석 완료 🧐<br>이제 SSAFY 버프 받아볼까?`;
+    document.getElementById('chartDesc').innerHTML = `내 만세력 사주 분석 완료 <br>이제 SSAFY 버프 받아볼까?`;
     btn.classList.remove('done'); btn.innerHTML = '⚡ SSAFY 버프 다시 받기 ⚡';
   }
 }
@@ -1409,7 +1409,7 @@ function plainLabel(key, dayOheng) {
 
 function shareText() {
   if (!lastResult) return '나의 취업 사주와 SSAFY 17기의 궁합은?';
-  return `내 취업 사주는 '${CONTENT.badge[lastResult.strongestKey]}' ⚡ 너의 SSAFY 17기 궁합은?`;
+  return `내 취업 사주는 '${CONTENT.badge[lastResult.strongestKey]}'. 너의 SSAFY 17기 궁합은?`;
 }
 
 // ===== v4: 결과 이미지 (인스타 스토리 1080×1920) =====
@@ -1490,16 +1490,16 @@ async function buildResultCanvas() {
   ctx.fillStyle = '#555'; ctx.font = `700 46px ${BODY_FONT}`;
   ctx.fillText(`${r.name} 님은`, cx, 1020);
   ctx.fillStyle = '#FF3366';
-  fitFont(ctx, `⚡ ${CONTENT.badge[r.strongestKey]} ⚡`, 900, 84, BODY_FONT, 940);
+  fitFont(ctx, `${CONTENT.badge[r.strongestKey]}`, 900, 84, BODY_FONT, 940);
   ctx.save(); ctx.shadowColor = '#FFD1DC'; ctx.shadowOffsetX = 4; ctx.shadowOffsetY = 4;
-  ctx.fillText(`⚡ ${CONTENT.badge[r.strongestKey]} ⚡`, cx, 1125); ctx.restore();
+  ctx.fillText(`${CONTENT.badge[r.strongestKey]}`, cx, 1125); ctx.restore();
 
   // 강점 / 성장 포인트 박스
   ctx.save(); ctx.shadowColor = 'rgba(0,0,0,0.06)'; ctx.shadowBlur = 24; ctx.shadowOffsetY = 6;
   rrect(ctx, 80, 1180, 920, 250, 40); ctx.fillStyle = '#fff'; ctx.fill(); ctx.restore();
   const rows = [
-    ['✨ 강점', '#FF3366', '#FFF0F4', plainLabel(r.strongestKey, r.dayOheng)],
-    ['🌱 성장 포인트', '#2E9E6B', '#EAF8F0', plainLabel(r.weakestKey, r.dayOheng)]
+    ['강점', '#FF3366', '#FFF0F4', plainLabel(r.strongestKey, r.dayOheng)],
+    ['성장 포인트', '#2E9E6B', '#EAF8F0', plainLabel(r.weakestKey, r.dayOheng)]
   ];
   // 태그 길이가 달라도('강점'/'성장 포인트') 오른쪽 글자가 같은 줄에서 시작하도록 가장 긴 태그 폭에 맞춘다
   ctx.font = `800 36px ${BODY_FONT}`;
@@ -1520,7 +1520,7 @@ async function buildResultCanvas() {
   rrect(ctx, 80, 1480, 920, 270, 40); ctx.fillStyle = '#FF3366'; ctx.fill();
   ctx.lineWidth = 8; ctx.strokeStyle = '#fff'; rrect(ctx, 96, 1496, 888, 238, 32); ctx.stroke();
   ctx.fillStyle = '#fff'; ctx.font = `700 54px ${TITLE_FONT}`;
-  ctx.fillText(`🧧 ${CONTENT.charm.name[r.strongestKey]}`, cx, 1590);
+  ctx.fillText(`${CONTENT.charm.name[r.strongestKey]}`, cx, 1590);
   ctx.font = `700 40px ${BODY_FONT}`;
   drawWrapped(ctx, il.closing, cx, 1670, 820, 54);
 
@@ -1538,7 +1538,7 @@ async function buildResultCanvas() {
 let _imgBlob = null;
 async function saveResultImage() {
   if (!lastResult) return;
-  showToast('결과 카드를 만드는 중… 🎨');
+  showToast('결과 카드를 만드는 중…');
   const cv = await buildResultCanvas();
   _imgBlob = await new Promise(res => cv.toBlob(res, 'image/png'));
   document.getElementById('imgPreview').src = cv.toDataURL('image/png');
