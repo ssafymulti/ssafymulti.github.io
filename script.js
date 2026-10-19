@@ -428,34 +428,34 @@ function labelOf(sipsinKey, dayOheng) {
 // closing = 부적 마무리 문구
 const CHARACTER = {
   목: {
-    화: { emoji: '🌴', name: '볕을 향해 뻗는 숲', tagline: '단단히 뿌리내려서, 볕만 들면 단숨에 자라날 사람', closing: '볕 드는 날, 숲은 한 번에 푸르러진다!' },
-    토: { emoji: '🌳', name: '뿌리 내릴 땅을 찾는 나무', tagline: '뻗어가는 힘이 넘쳐, 좋은 터만 만나면 크게 자랄 사람', closing: '딱 맞는 땅을 만나면 쑥쑥 자란다!' },
+    화: { emoji: '🌴', name: '볕을 향해 뻗는 숲', tagline: '단단히 뿌리내려서, 볕만 들면 단숨에 자라날 사람', closing: '볕 드는 날, 숲은 한 번에 푸르러져요!' },
+    토: { emoji: '🌳', name: '뿌리 내릴 땅을 찾는 나무', tagline: '뻗어가는 힘이 넘쳐, 좋은 터만 만나면 크게 자랄 사람', closing: '딱 맞는 땅을 만나면 쑥쑥 자라요!' },
     금: { emoji: '🌲', name: '다듬으면 명작이 될 원목', tagline: '타고난 결이 좋아, 조금만 다듬어도 빛나는 사람', closing: '다듬을수록 빛나는 결, 합격까지 쭉!' },
     수: { emoji: '🎋', name: '물길을 기다리는 대나무', tagline: '곧게 자라는 힘이 있어, 물길만 만나면 하늘까지 뻗을 사람', closing: '물길 만나는 순간 하늘까지 쭉!' }
   },
   화: {
-    목: { emoji: '🔥', name: '장작을 기다리는 불꽃', tagline: '뜨거운 열정을 지녀, 재료만 더해지면 오래 타오를 사람', closing: '그 불꽃, 이제 꺼지지 않는다!' },
+    목: { emoji: '🔥', name: '장작을 기다리는 불꽃', tagline: '뜨거운 열정을 지녀, 재료만 더해지면 오래 타오를 사람', closing: '그 불꽃, 이제 꺼지지 않아요!' },
     토: { emoji: '🏺', name: '명작을 빚는 가마', tagline: '뜨거운 열정에 형태만 잡히면 오래 남을 작품을 빚을 사람', closing: '뜨겁게 구워낸 실력, 합격으로 완성!' },
-    금: { emoji: '⚒️', name: '명검을 벼리는 대장간 불', tagline: '뜨거운 에너지로, 단단한 목표를 만나면 명검을 벼려낼 사람', closing: '제대로 벼린 실력, 어디서든 통한다!' },
+    금: { emoji: '⚒️', name: '명검을 벼리는 대장간 불', tagline: '뜨거운 에너지로, 단단한 목표를 만나면 명검을 벼려낼 사람', closing: '제대로 벼린 실력, 어디서든 통해요!' },
     수: { emoji: '🌅', name: '바다 위로 떠오르는 해', tagline: '어디서든 환히 빛나고, 깊이를 더하면 더 멀리 비출 사람', closing: '떠오르는 해처럼 합격 소식도 곧!' }
   },
   토: {
     목: { emoji: '🏞️', name: '숲을 품을 너른 대지', tagline: '넉넉하게 품어 주는 힘이 있어, 씨앗만 심기면 숲을 키울 사람', closing: '심는 대로 거두는 땅, 합격도 쑥!' },
-    화: { emoji: '🌾', name: '햇살을 기다리는 들판', tagline: '묵묵히 쌓아 온 게 많아, 햇살 한 줄기면 황금빛으로 물들 사람', closing: '황금 들판처럼 결실의 계절이 온다!' },
+    화: { emoji: '🌾', name: '햇살을 기다리는 들판', tagline: '묵묵히 쌓아 온 게 많아, 햇살 한 줄기면 황금빛으로 물들 사람', closing: '황금 들판처럼 결실의 계절이 와요!' },
     금: { emoji: '⛰️', name: '보석을 품은 산', tagline: '든든하게 버티는 힘 속에, 아직 꺼내지 않은 원석을 품은 사람', closing: '품은 원석, 이제 세상에 꺼낼 차례!' },
-    수: { emoji: '🌦️', name: '단비를 기다리는 너른 밭', tagline: '기반을 단단히 다져 두어, 단비만 내리면 무엇이든 키워낼 사람', closing: '단비 내리는 날, 합격 꽃이 핀다!' }
+    수: { emoji: '🌦️', name: '단비를 기다리는 너른 밭', tagline: '기반을 단단히 다져 두어, 단비만 내리면 무엇이든 키워낼 사람', closing: '단비 내리는 날, 합격 꽃이 피어요!' }
   },
   금: {
     목: { emoji: '🛠️', name: '재료를 기다리는 조각칼', tagline: '날카로운 실력을 갖춰, 다룰 재료만 만나면 작품을 만들어낼 사람', closing: '그 솜씨, 이제 마음껏 펼칠 차례!' },
-    화: { emoji: '🏅', name: '불꽃 속에서 빛날 황금', tagline: '이미 단단한 원석이라, 열정만 더해지면 순금처럼 빛날 사람', closing: '제대로 달궈진 황금, 어디서든 빛난다!' },
+    화: { emoji: '🏅', name: '불꽃 속에서 빛날 황금', tagline: '이미 단단한 원석이라, 열정만 더해지면 순금처럼 빛날 사람', closing: '제대로 달궈진 황금, 어디서든 빛나요!' },
     토: { emoji: '💎', name: '제자리를 찾는 보석', tagline: '디테일까지 반짝이는 감각으로, 든든한 자리를 만나면 가장 빛날 사람', closing: '제자리를 찾은 보석, 합격으로 반짝!' },
     수: { emoji: '🏔️', name: '맑은 샘을 품은 바위산', tagline: '단단하고 흔들림 없어, 마음속 샘만 열리면 생각이 끝없이 흐를 사람', closing: '샘솟는 아이디어로 합격까지 콸콸!' }
   },
   수: {
-    목: { emoji: '💧', name: '숲을 키울 깊은 호수', tagline: '깊이 품어 주는 힘이 있어, 씨앗만 만나면 숲 하나를 길러낼 사람', closing: '그 깊은 물로 합격 숲까지 키우자!' },
-    화: { emoji: '🌊', name: '아침 해를 기다리는 바다', tagline: '생각의 폭이 넓고 깊어, 햇살만 비추면 눈부시게 반짝일 사람', closing: '해가 뜨는 순간, 바다는 가장 빛난다!' },
+    목: { emoji: '💧', name: '숲을 키울 깊은 호수', tagline: '깊이 품어 주는 힘이 있어, 씨앗만 만나면 숲 하나를 길러낼 사람', closing: '그 깊은 물로 합격 숲까지 키워 봐요!' },
+    화: { emoji: '🌊', name: '아침 해를 기다리는 바다', tagline: '생각의 폭이 넓고 깊어, 햇살만 비추면 눈부시게 반짝일 사람', closing: '해가 뜨는 순간, 바다는 가장 빛나요!' },
     토: { emoji: '🛶', name: '방향을 찾는 큰 강', tagline: '흐르는 힘이 넘쳐, 물길만 잡히면 어디든 닿을 수 있는 사람', closing: '물길이 잡히면 합격까지 한 번에!' },
-    금: { emoji: '⛲', name: '마르지 않을 샘', tagline: '맑고 유연한 생각을 지녀, 원천만 만나면 끝없이 흘러갈 사람', closing: '마르지 않는 샘처럼 끝까지 간다!' }
+    금: { emoji: '⛲', name: '마르지 않을 샘', tagline: '맑고 유연한 생각을 지녀, 원천만 만나면 끝없이 흘러갈 사람', closing: '마르지 않는 샘처럼 끝까지 가요!' }
   }
 };
 
@@ -549,15 +549,15 @@ function showDateMsg(msg, focusEl) {
 function readBirthDate() {
   const y = +YY().value, m = +MM().value, d = +DD().value;
   if (!YY().value || !MM().value || !DD().value)
-    return { ok: false, msg: '생년월일을 모두 입력해줘!', focus: !YY().value ? YY() : (!MM().value ? MM() : DD()) };
+    return { ok: false, msg: '생년월일을 모두 입력해 주세요!', focus: !YY().value ? YY() : (!MM().value ? MM() : DD()) };
   if (y < 1900 || y > 2100)
-    return { ok: false, msg: '연도는 1900~2100 사이로 입력해줘!', focus: YY() };
+    return { ok: false, msg: '연도는 1900~2100 사이로 입력해 주세요!', focus: YY() };
   if (m < 1 || m > 12)
-    return { ok: false, msg: '월은 1~12 사이로 입력해줘!', focus: MM() };
+    return { ok: false, msg: '월은 1~12 사이로 입력해 주세요!', focus: MM() };
   // 실제로 존재하는 날짜인지 확인 (2월 30일 같은 입력 차단)
   const dt = new Date(y, m - 1, d);
   if (d < 1 || dt.getFullYear() !== y || dt.getMonth() !== m - 1 || dt.getDate() !== d)
-    return { ok: false, msg: `${y}년 ${m}월에는 ${d}일이 없어!`, focus: DD() };
+    return { ok: false, msg: `${y}년 ${m}월에는 ${d}일이 없어요!`, focus: DD() };
   return { ok: true, y, m, d };
 }
 
@@ -655,7 +655,7 @@ if (!birth.ok) { showDateMsg(birth.msg, birth.focus); return; }
 showDateMsg('');
 
 if (timeStr === '자시') {
-  if (!jasiChoice) { setJasiMsg('자정 전인지 후인지 골라줘!'); return; }
+  if (!jasiChoice) { setJasiMsg('자정 전인지 후인지 골라 주세요!'); return; }
   timeStr = jasiChoice;
 }
 
@@ -778,8 +778,8 @@ const strongLabel = labelOf(strongestKey, dayOheng);
 document.getElementById('resultBadge').innerText = `${CONTENT.badge[strongestKey]}`;
 document.getElementById('resultMeme').innerHTML =
   `만세력 분석 결과, <strong>${strongOheng}(${OHENG_INFO[strongOheng].hanja})</strong> 기운이 강하고 `
-  + `<strong>${weakOheng}(${OHENG_INFO[weakOheng].hanja})</strong> 기운은 앞으로 더 키워가면 좋겠네?!<br>`
-  + `SSAFY에서 강점은 살리고, 성장 포인트는 키워보자!`;
+  + `<strong>${weakOheng}(${OHENG_INFO[weakOheng].hanja})</strong> 기운은 앞으로 더 키워가면 좋겠어요!<br>`
+  + `SSAFY에서 강점은 살리고, 성장 포인트는 키워 봐요!`;
 
 // 차트 부제 — '내 오행' 태그를 없애면서 '(나 자신 포함)' 표기도 함께 뺐다.
 // 캐릭터가 일간이 아니라 강점·성장 포인트 기준이라, 일간을 따로 짚을 필요가 없다.
@@ -840,7 +840,7 @@ document.getElementById('talismanBack').innerHTML =
   + `<div class="charm-closing">${ch.closing}</div>`;
 
 // ② 오행 분포도 차트 - 진입 시에는 실제 퍼센트만 표시 (버프 연출은 부적을 긁는 시점에 트리거)
-document.getElementById('chartDesc').innerHTML = `내 만세력 사주 분석 완료<br>이제 SSAFY 버프 받아볼까?`;
+document.getElementById('chartDesc').innerHTML = `내 만세력 사주 분석 완료<br>이제 SSAFY 버프 받아 볼까요?`;
 const buffBtn = document.getElementById('buffBtn');
 buffBtn.hidden = false; buffBtn.classList.remove('done'); buffBtn.innerHTML = '⚡ SSAFY 버프 받기 ⚡';
 buffOn = false;
@@ -955,7 +955,7 @@ function toggleBuff() {
       val.style.color = '#FF3366';
       val.innerText = percentages[slug].toFixed(1) + '%';
     });
-    document.getElementById('chartDesc').innerHTML = `내 만세력 사주 분석 완료 <br>이제 SSAFY 버프 받아볼까?`;
+    document.getElementById('chartDesc').innerHTML = `내 만세력 사주 분석 완료 <br>이제 SSAFY 버프 받아 볼까요?`;
     btn.classList.remove('done'); btn.innerHTML = '⚡ SSAFY 버프 다시 받기 ⚡';
   }
 }
@@ -975,7 +975,7 @@ function plainLabel(key, dayOheng) {
 
 function shareText() {
   if (!lastResult) return '나의 취업 사주와 SSAFY 17기의 궁합은?';
-  return `내 취업 사주는 '${CONTENT.badge[lastResult.strongestKey]}'. 너의 SSAFY 17기 궁합은?`;
+  return `내 취업 사주는 '${CONTENT.badge[lastResult.strongestKey]}'. 당신의 SSAFY 17기 궁합은?`;
 }
 
 // ===== v4: 결과 이미지 (인스타 스토리 1080×1920) =====
