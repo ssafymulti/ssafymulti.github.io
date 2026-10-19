@@ -997,7 +997,7 @@ function plainLabel(key, dayOheng) {
 
 function shareText() {
   if (!lastResult) return '나의 취업 사주와 SSAFY 17기의 궁합은?';
-  return `내 취업 사주는 '${CONTENT.badge[lastResult.strongestKey]}'.\n\n당신의 SSAFY 17기 궁합이 궁금하다면?\n👉 https://ssafymulti.github.io/ 에서 알아보기`;
+  return `내 취업 사주는 '${CONTENT.badge[lastResult.strongestKey]}'.\n당신의 SSAFY 17기 궁합이 궁금하다면?\n👉 https://ssafymulti.github.io/ 에서 알아보기`;
 }
 
 // ===== v4: 결과 이미지 (인스타 스토리 1080×1920) =====
@@ -1033,7 +1033,7 @@ function drawWrapped(ctx, text, x, y, maxW, lh) {
 }
 
 const EMOJI_FONT = '"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif';
-const TITLE_FONT = '"CookieRun","Pretendard",sans-serif';
+const TITLE_FONT = '"Paperozi","Pretendard",sans-serif';
 const BODY_FONT = '"Pretendard",sans-serif';
 
 async function buildResultCanvas() {

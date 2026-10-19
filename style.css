@@ -1,37 +1,79 @@
-/* CookieRun 웹폰트 (눈누) */
+/* 페이퍼로지(Paperlogy) 웹폰트 (눈누) — 쓰는 굵기만 내려받는다 */
 @font-face {
-    font-family: 'CookieRun';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
-    font-weight: normal;
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-1Thin.woff2') format('woff2');
+    font-weight: 100;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'CookieRun';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff') format('woff');
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-2ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-3Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-4Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-5Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-6SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2');
     font-weight: 700;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'CookieRun';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Black00.woff') format('woff');
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Paperozi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-9Black.woff2') format('woff2');
     font-weight: 900;
     font-display: swap;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', 'CookieRun', sans-serif; word-break: keep-all; overflow-wrap: break-word; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', 'Paperozi', sans-serif; word-break: keep-all; overflow-wrap: break-word; }
 body { background-color: #F9F3FF; color: #333; overflow-x: hidden; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
 
-/* 포인트 영역(타이틀/버튼 등)은 CookieRun 유지, 본문은 Pretendard로 격식 있게 */
+/* 포인트 영역(타이틀/버튼 등)은 페이퍼로지, 본문은 Pretendard로 격식 있게 */
 .title-box h1, .loading-text, .result-header h2, .chart-card h3, .section-title,
 .recommend-title, .activity-role, .start-btn, .cta-btn, .talisman-title,
-.flip-card-front h3, .flip-card-back h2 { font-family: 'CookieRun', sans-serif; }
+.flip-card-front h3, .flip-card-back h2 { font-family: 'Paperozi', sans-serif; }
 .container { max-width: 480px; width: 100%; background: #fff; min-height: 100vh; position: relative; box-shadow: 0 0 20px rgba(0,0,0,0.05); overflow: hidden; }
 .screen { display: none; padding: 30px 20px; flex-direction: column; align-items: center; min-height: 100vh; }
 .screen.active { display: flex; }
 .title-box { text-align: center; margin-top: 50px; margin-bottom: 30px; }
-.title-box h1 { font-size: 28px; color: #7B61FF; line-height: 1.4; text-shadow: 2px 2px 0px #E5D9F2; }
+.title-box h1 { font-size: 28px; color: #7B61FF; line-height: 1.4; text-shadow: 2px 2px 0px #E5D9F2;}
 .input-group { width: 100%; margin-bottom: 20px; }
 .input-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #555; }
 .input-group input, .input-group select { width: 100%; padding: 15px; border: 2px solid #E5D9F2; border-radius: 12px; font-size: 16px; outline: none; transition: all 0.3s; }
@@ -132,7 +174,7 @@ body { background-color: #F9F3FF; color: #333; overflow-x: hidden; display: flex
 /* 일주 코드명 배너 */
 .ilju-banner { width: 100%; text-align: center; background: linear-gradient(135deg, #7B61FF, #B9A6F2); border-radius: 18px; padding: 24px 20px; margin-bottom: 20px; box-shadow: 0 6px 16px rgba(123, 97, 255, 0.3); }
 .ilju-label, .ilju-suffix { color: #fff; font-size: 14px; opacity: 0.9; }
-.ilju-name { color: #fff; font-size: 32px; font-family: 'CookieRun', sans-serif; margin: 6px 0; text-shadow: 2px 2px 0px rgba(0,0,0,0.15); }
+.ilju-name { color: #fff; font-size: 32px; font-family: 'Paperozi', sans-serif; margin: 6px 0; text-shadow: 2px 2px 0px rgba(0,0,0,0.15); }
 .ilju-hanja, .ilju-oheng { color: #fff; font-size: 15px; opacity: 0.92; margin-bottom: 4px; }
 .ilju-emoji { font-size: 42px; line-height: 1; margin-bottom: 2px; }
 .ilju-suffix { line-height: 1.5; padding: 0 6px; }
@@ -157,7 +199,7 @@ body { background-color: #F9F3FF; color: #333; overflow-x: hidden; display: flex
 .summary-box strong { color: #7B61FF; }
 
 /* 성향 요약 - 개조식 박스 */
-.summary-lead { font-family: 'CookieRun', sans-serif; font-size: 17px; color: #7B61FF; margin-bottom: 14px; line-height: 1.4; }
+.summary-lead { font-family: 'Paperozi', sans-serif; font-size: 17px; color: #7B61FF; margin-bottom: 14px; line-height: 1.4; }
 .trait-list { display: flex; flex-direction: column; gap: 8px; }
 .trait-item { display: flex; align-items: flex-start; gap: 10px; background: #fff; border-radius: 10px; padding: 11px 12px; text-align: left; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
 .trait-tag { flex: 0 0 58px; font-size: 11px; font-weight: bold; padding: 5px 0; border-radius: 6px; text-align: center; line-height: 1.3; letter-spacing: -0.3px; }
