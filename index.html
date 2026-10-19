@@ -20,7 +20,6 @@
 <meta name="twitter:title" content="나의 취업 사주와 SSAFY 17기의 궁합은?">
 <meta name="twitter:description" content="생년월일로 보는 나의 오행 밸런스, 내 강점에 맞는 SSAFY 활용법까지 30초 만에 확인해보세요">
 <meta name="twitter:image" content="https://YOUR-DOMAIN/og-image.png">
-<link href="https://webfontworld.github.io/cookie/CookieRun.css" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <link rel="stylesheet" href="style.css">
@@ -38,7 +37,9 @@
 <h1>나의 취업 사주와<br>SSAFY 17기의 궁합은?</h1>
 <p style="margin-top: 10px; color: #777; font-size: 14px;">생년월일로 보는 나의 오행(五行) 밸런스, 재미로 즐겨보세요</p>
 </div>
-<div class="input-group"><label>이름</label><input type="text" id="userName" placeholder="이름을 입력해봐!"></div>
+<div class="input-group"><label>이름</label><input type="text" id="userName" placeholder="이름을 입력해봐!">
+<div class="date-msg" aria-hidden="true"></div><!-- 생년월일 안내문 칸과 같은 높이로 여백 맞춤 -->
+</div>
 <div class="input-group"><label>생년월일 (양력 기준)</label>
 <div class="date-row" id="dateRow">
 <input type="text" id="byYear" inputmode="numeric" maxlength="4" placeholder="YYYY">
@@ -147,7 +148,7 @@
 <div class="section-card weak">
 <div class="section-title weak-title" id="weakTitle"></div>
 <p class="catch-line weak-catch" id="weakCatch"></p>
-<div class="sub-block pink"><span class="sub-label" id="weakSubLabel">성장 포인트</span><span id="weakDesc"></span></div>
+<div class="sub-block pink"><span class="sub-label" id="weakSubLabel">🌱 성장 포인트</span><span id="weakDesc"></span></div>
 <div class="sub-block blue sealed" id="weakSeal" onclick="unseal()" role="button" tabindex="0" aria-label="SSAFY가 키워주는 것 열기">
 <div class="seal-cover">
 <div class="seal-lock">🔒</div>

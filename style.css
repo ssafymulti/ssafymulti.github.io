@@ -1,3 +1,25 @@
+/* CookieRun 웹폰트 (눈누) */
+@font-face {
+    font-family: 'CookieRun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CookieRun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CookieRun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Black00.woff') format('woff');
+    font-weight: 900;
+    font-display: swap;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', 'CookieRun', sans-serif; word-break: keep-all; overflow-wrap: break-word; }
 body { background-color: #F9F3FF; color: #333; overflow-x: hidden; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
 
@@ -13,6 +35,10 @@ body { background-color: #F9F3FF; color: #333; overflow-x: hidden; display: flex
 .input-group { width: 100%; margin-bottom: 20px; }
 .input-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #555; }
 .input-group input, .input-group select { width: 100%; padding: 15px; border: 2px solid #E5D9F2; border-radius: 12px; font-size: 16px; outline: none; transition: all 0.3s; }
+.input-group input::placeholder { color: #C9BEE6; }
+/* 출생시간 '모름'(값 없음)은 플레이스홀더처럼 연보라로, 펼친 목록은 기본 글자색 */
+.input-group select:has(option[value=""]:checked) { color: #C9BEE6; }
+.input-group select option { color: #333; }
 .input-group input:focus, .input-group select:focus { border-color: #7B61FF; box-shadow: 0 0 10px rgba(123, 97, 255, 0.2); }
 
 /* 생년월일.
@@ -27,8 +53,12 @@ body { background-color: #F9F3FF; color: #333; overflow-x: hidden; display: flex
 .date-row input { border: none; outline: none; background: transparent; padding: 2px 0;
   font-size: 17px; text-align: left; letter-spacing: 1px; color: #333; font-family: inherit; }
 .date-row input::placeholder { color: #C9BEE6; letter-spacing: 0; }
+/* 포커스 강조는 바깥 박스(.date-row.focus)에서만. 안쪽 칸 그림자는 작은 타원처럼 보여서 끈다 */
+.date-row input:focus { box-shadow: none; }
+/* .input-group input의 둥근 모서리(12px)가 작은 칸에선 커서를 잘라서 각지게 */
+.date-row input { border-radius: 0; }
 .date-row input#byYear { width: 50px; }
-.date-row input#byMonth, .date-row input#byDay { width: 27px; }
+.date-row input#byMonth, .date-row input#byDay { width: 36px; }
 .date-sep { color: #C0B6DC; font-size: 15px; padding: 0 9px; user-select: none; }
 .jasi-pick { margin-top: 12px; padding: 14px; border-radius: 12px; background: #F7F3FF; border: 2px solid #E5D9F2; }
 .jasi-pick.err { border-color: #FF6B8A; background: #FFF5F7; }
