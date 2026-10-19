@@ -9,6 +9,13 @@ const CONFIG = {
 };
 // ===================================================================
 
+// 콘솔 이스터에그: 개발자 도구를 열어 본 사람에게 건네는 인사
+console.log(
+  '%c여기까지 찾아오셨군요!%c\n콘솔을 열어 보는 호기심, 이미 개발자의 자질이에요.\nSSAFY 17기에서 그 꿈을 마음껏 펼쳐 보세요.\nhttps://www.ssafy.com',
+  'color: #7B61FF; font-size: 20px; font-weight: bold;',
+  'color: #555; font-size: 14px; line-height: 1.6;'
+);
+
 // 결과 유형 코드 (URL·GA용 영문 코드. 한글 파라미터는 깨지기 쉬워 영문으로 통일)
 const TYPE_CODE = { 비겁: 'bigeop', 식상: 'siksang', 재성: 'jaeseong', 관성: 'gwanseong', 인성: 'inseong' };
 const OHENG_CODE = { 목: 'wood', 화: 'fire', 토: 'earth', 금: 'metal', 수: 'water' };
