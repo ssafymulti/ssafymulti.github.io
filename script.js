@@ -1114,9 +1114,17 @@ async function saveResultImage() {
 }
 function closeImgModal() { document.getElementById('imgModal').hidden = true; }
 
+// 카카오톡 인앱 브라우저는 공유 시트도, blob 다운로드도 처리하지 못한다("지원하지 않는 파일 형식").
+// → 버튼을 누르면 안내문을 바꿔서 이미지를 길게 눌러 저장하도록 안내한다.
+const IS_KAKAO = /KAKAOTALK/i.test(navigator.userAgent);
+function showKakaoSaveGuide() {
+  document.getElementById('imgHint').innerHTML = '카카오톡에서는 위 이미지를 <b>길게 눌러</b> 저장해 주세요';
+}
+
 document.getElementById('imgSaveBtn').addEventListener('click', async () => {
   if (!_imgBlob) return;
   const itemId = TYPE_CODE[lastResult.strongestKey];
+  if (IS_KAKAO) { showKakaoSaveGuide(); return; }
   const file = new File([_imgBlob], `ssafy17_saju_${itemId}.png`, { type: 'image/png' });
   // 모바일: 시스템 공유 시트(사진 저장·인스타 스토리 바로 연결)
   if (navigator.canShare && navigator.canShare({ files: [file] }) && /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
