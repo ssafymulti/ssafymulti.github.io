@@ -1,0 +1,227 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', 'CookieRun', sans-serif; word-break: keep-all; overflow-wrap: break-word; }
+body { background-color: #F9F3FF; color: #333; overflow-x: hidden; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+
+/* 포인트 영역(타이틀/버튼 등)은 CookieRun 유지, 본문은 Pretendard로 격식 있게 */
+.title-box h1, .loading-text, .result-header h2, .chart-card h3, .section-title,
+.recommend-title, .activity-role, .start-btn, .cta-btn, .talisman-title,
+.flip-card-front h3, .flip-card-back h2 { font-family: 'CookieRun', sans-serif; }
+.container { max-width: 480px; width: 100%; background: #fff; min-height: 100vh; position: relative; box-shadow: 0 0 20px rgba(0,0,0,0.05); overflow: hidden; }
+.screen { display: none; padding: 30px 20px; flex-direction: column; align-items: center; min-height: 100vh; }
+.screen.active { display: flex; }
+.title-box { text-align: center; margin-top: 50px; margin-bottom: 30px; }
+.title-box h1 { font-size: 28px; color: #7B61FF; line-height: 1.4; text-shadow: 2px 2px 0px #E5D9F2; }
+.input-group { width: 100%; margin-bottom: 20px; }
+.input-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #555; }
+.input-group input, .input-group select { width: 100%; padding: 15px; border: 2px solid #E5D9F2; border-radius: 12px; font-size: 16px; outline: none; transition: all 0.3s; }
+.input-group input:focus, .input-group select:focus { border-color: #7B61FF; box-shadow: 0 0 10px rgba(123, 97, 255, 0.2); }
+
+/* 생년월일.
+   input type="date"의 연/월/일 칸은 브라우저 내부 요소라 JS가 포커스를 옮길 수 없다.
+   (합성 키 이벤트는 isTrusted=false라 무시됨) 그래서 직접 만든 칸 3개로 대체하되,
+   테두리는 바깥 박스에만 줘서 겉보기에는 기존과 같은 입력칸 하나로 보이게 한다. */
+.date-row { display: flex; align-items: center;
+  width: 100%; padding: 13px 15px; border: 2px solid #E5D9F2; border-radius: 12px;
+  background: #fff; transition: all 0.3s; }
+.date-row.focus { border-color: #7B61FF; box-shadow: 0 0 10px rgba(123, 97, 255, 0.2); }
+.date-row.err { border-color: #FF6B8A; background: #FFF5F7; }
+.date-row input { border: none; outline: none; background: transparent; padding: 2px 0;
+  font-size: 17px; text-align: left; letter-spacing: 1px; color: #333; font-family: inherit; }
+.date-row input::placeholder { color: #C9BEE6; letter-spacing: 0; }
+.date-row input#byYear { width: 50px; }
+.date-row input#byMonth, .date-row input#byDay { width: 27px; }
+.date-sep { color: #C0B6DC; font-size: 15px; padding: 0 9px; user-select: none; }
+.jasi-pick { margin-top: 12px; padding: 14px; border-radius: 12px; background: #F7F3FF; border: 2px solid #E5D9F2; }
+.jasi-pick.err { border-color: #FF6B8A; background: #FFF5F7; }
+.jasi-q { font-size: 14px; font-weight: bold; color: #555; margin-bottom: 10px; }
+.jasi-opts { display: flex; gap: 8px; }
+.jasi-opt { flex: 1; padding: 12px 8px; border: 2px solid #E5D9F2; border-radius: 12px; background: #fff; font-size: 15px; font-weight: bold; color: #555; cursor: pointer; transition: all 0.2s; }
+.jasi-opt small { display: block; margin-top: 4px; font-size: 12px; font-weight: normal; color: #999; }
+.jasi-opt.on { border-color: #7B61FF; background: #7B61FF; color: #fff; }
+.jasi-opt.on small { color: rgba(255,255,255,0.85); }
+.jasi-hint { margin-top: 8px; font-size: 12px; color: #999; }
+.jasi-pick .date-msg:empty { min-height: 0; margin-top: 0; }
+.date-msg { margin-top: 8px; font-size: 13px; color: #FF3366; font-weight: bold; min-height: 18px; }
+.start-btn { width: 100%; padding: 18px; background: #7B61FF; color: #fff; border: none; border-radius: 15px; font-size: 20px; font-weight: bold; cursor: pointer; margin-top: 20px; box-shadow: 0 5px 15px rgba(123, 97, 255, 0.4); transition: transform 0.1s ease; }
+.start-btn:active { transform: scale(0.92); }
+.loading-text { margin-top: 40vh; font-size: 24px; color: #7B61FF; text-align: center; animation: blink 1s infinite; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+.result-header { text-align: center; margin-top: 20px; margin-bottom: 20px; }
+.result-header h2 { font-size: 22px; color: #7B61FF; line-height: 1.4; }
+.result-header { margin-bottom: 12px; }
+
+/* 결과 배지 + 밈 말풍선 */
+.result-badge { font-family: 'Pretendard', sans-serif; font-weight: 900; font-size: 29px; letter-spacing: -1px; color: #FF3366; text-shadow: 2px 2px 0px #FFD1DC; margin: 14px 0 12px 0; line-height: 1.3; word-break: keep-all; animation: pop 0.5s ease-out; }
+@keyframes pop { 0% { transform: scale(0); } 80% { transform: scale(1.2); } 100% { transform: scale(1); } }
+.meme-text { font-size: 15px; background: #FFF0F5; padding: 13px 18px; border-radius: 20px; color: #FF3366; display: inline-block; line-height: 1.55; word-break: keep-all; }
+.meme-text strong { color: #D81B60; }
+
+/* 형광펜 강조 */
+.hl { background-image: linear-gradient(transparent 55%, #FFF3A0 55%); background-repeat: no-repeat;
+  font-weight: bold; padding: 0 1px;
+  /* 인라인 요소가 여러 줄로 나뉘면 그라데이션이 전체 박스 기준으로 한 번만 계산돼
+     첫 줄에 색이 안 칠해진다. clone으로 줄마다 개별 계산되게 한다. */
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  /* 기본값은 '칠해진 상태'. JS가 .pen을 붙여 0%로 감췄다가 떼면서 좍 그어진다.
+     JS가 실패해도 형광펜은 그대로 보인다. */
+  background-size: 100% 100%;
+  transition: background-size .75s cubic-bezier(.33,0,.2,1); }
+.hl.pen { background-size: 0% 100%; }
+.sub-block b { color: #7B61FF; }
+.sub-block.pink b { color: #FF3366; }
+
+/* 봉인 해제 (부족 카드 SSAFY 블록) */
+.sealed { position: relative; cursor: pointer; }
+.sealed .seal-cover { position: absolute; inset: 0; border-radius: 12px; background: repeating-linear-gradient(45deg, #EDE4FF, #EDE4FF 10px, #E3D6FF 10px, #E3D6FF 20px); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 10px; transition: opacity .45s ease, transform .45s ease; z-index: 2; }
+.sealed .seal-cover .seal-lock { font-size: 26px; margin-bottom: 6px; }
+.sealed .seal-cover .seal-msg { font-size: 14px; font-weight: bold; color: #7B61FF; line-height: 1.4; word-break: keep-all; }
+.sealed .seal-cover .seal-hint { margin-top: 8px; font-size: 12px; color: #fff; background: #7B61FF; padding: 4px 12px; border-radius: 20px; animation: sealPulse 1.4s infinite; }
+@keyframes sealPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+.sealed.opened .seal-cover { opacity: 0; transform: scale(1.04); pointer-events: none; }
+.sealed .seal-body { transition: opacity .45s ease .1s; opacity: 0; }
+.sealed.opened .seal-body { opacity: 1; }
+
+/* SSAFY 서비스명 칩 */
+.svc-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 10px 0; }
+.svc-chip { font-size: 12px; font-weight: bold; color: #C62828; background: #FFF7F7; border: 1.5px solid #E57373; padding: 5px 11px; border-radius: 20px; opacity: 0; word-break: keep-all; }
+/* 도장이 쿵 박히듯: 크게 회전하며 떨어져 눌렸다가 살짝 튀고 자리를 잡는다 */
+.svc-chip.pop-in { animation: chipStamp .5s cubic-bezier(.2,.8,.3,1.2) forwards; }
+@keyframes chipStamp {
+  0%   { opacity: 0; transform: rotate(-14deg) scale(2.2); }
+  55%  { opacity: 1; transform: rotate(3deg) scale(.93); }
+  75%  { transform: rotate(-2deg) scale(1.05); }
+  100% { opacity: 1; transform: rotate(0deg) scale(1); }
+}
+
+
+/* 5-1/5-2 예외 처리 안내 문구 */
+.time-unknown-notice + .time-unknown-notice { margin-top: 6px; }
+.time-unknown-notice[hidden] { display: none; }
+.time-unknown-notice { width: 100%; text-align: center; font-size: 13px; color: #D84315; background: #FFF3E0; border-radius: 10px; padding: 10px 12px; margin-top: 10px; }
+.jasi-footnote { width: 100%; text-align: center; font-size: 11px; color: #999; font-style: italic; margin-top: -14px; margin-bottom: 20px; line-height: 1.5; }
+
+/* 일주 코드명 배너 */
+.ilju-banner { width: 100%; text-align: center; background: linear-gradient(135deg, #7B61FF, #B9A6F2); border-radius: 18px; padding: 24px 20px; margin-bottom: 20px; box-shadow: 0 6px 16px rgba(123, 97, 255, 0.3); }
+.ilju-label, .ilju-suffix { color: #fff; font-size: 14px; opacity: 0.9; }
+.ilju-name { color: #fff; font-size: 32px; font-family: 'CookieRun', sans-serif; margin: 6px 0; text-shadow: 2px 2px 0px rgba(0,0,0,0.15); }
+.ilju-hanja, .ilju-oheng { color: #fff; font-size: 15px; opacity: 0.92; margin-bottom: 4px; }
+.ilju-emoji { font-size: 42px; line-height: 1; margin-bottom: 2px; }
+.ilju-suffix { line-height: 1.5; padding: 0 6px; }
+
+
+.chart-card { width: 100%; background: #fff; border: 2px solid #E5D9F2; border-radius: 15px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.bar-row { display: flex; align-items: center; margin-bottom: 15px; position: relative; }
+.bar-label { width: 58px; display: flex; flex-direction: column; line-height: 1.2; }
+.bar-label b { font-weight: bold; font-size: 14px; color: #444; }
+.bar-label small { font-size: 10px; color: #999; margin-top: 2px; }
+.bar-bg { flex: 1; height: 20px; background: #F0F0F0; border-radius: 10px; margin: 0 10px; display: flex; overflow: hidden; position: relative; }
+.bar-orig { height: 100%; width: 0%; transition: width 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.bar-buff { height: 100%; width: 0%; background: repeating-linear-gradient(45deg, #FFD54F, #FFD54F 10px, #FFCA28 10px, #FFCA28 20px); transition: width 1s ease-in-out; opacity: 0; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #D84315; font-weight: bold; white-space: nowrap; overflow: hidden; }
+.mok .bar-orig { background: #4CAF50; } .hwa .bar-orig { background: #FF5722; } .to .bar-orig { background: #D4A017; } .geum .bar-orig { background: #90A4AE; } .su .bar-orig { background: #2196F3; }
+.bar-desc { font-size: 12px; color: #FF3366; font-weight: bold; width: 44px; text-align: right; white-space: nowrap; }
+
+/* 내가 타고난 오행(일간)과 같은 줄을 강조.
+   상단 캐릭터 배너의 오행이 차트 어디에 있는지 눈으로 잇게 해준다. */
+
+/* ② 종합 설명 */
+.summary-box { width: 100%; background: #F4FAFF; border-radius: 15px; padding: 18px 16px; margin-bottom: 20px; border: 2px dashed #B9A6F2; text-align: center; font-size: 15px; line-height: 1.6; color: #555; }
+.summary-box strong { color: #7B61FF; }
+
+/* 성향 요약 - 개조식 박스 */
+.summary-lead { font-family: 'CookieRun', sans-serif; font-size: 17px; color: #7B61FF; margin-bottom: 14px; line-height: 1.4; }
+.trait-list { display: flex; flex-direction: column; gap: 8px; }
+.trait-item { display: flex; align-items: flex-start; gap: 10px; background: #fff; border-radius: 10px; padding: 11px 12px; text-align: left; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.trait-tag { flex: 0 0 58px; font-size: 11px; font-weight: bold; padding: 5px 0; border-radius: 6px; text-align: center; line-height: 1.3; letter-spacing: -0.3px; }
+.tag-point { background: #EDE4FF; color: #7B61FF; }
+.tag-weak  { background: #FFE4EC; color: #FF3366; }
+.tag-learn { background: #DFF3E7; color: #2E8B57; }
+.tag-job   { background: #FFF0D4; color: #C77700; }
+.trait-item p { flex: 1; font-size: 14px; line-height: 1.55; color: #444; word-break: keep-all; }
+.highlight-line { margin-top: 12px; background: #F4E9FF; color: #7B61FF; font-weight: bold; padding: 12px 14px; border-radius: 10px; line-height: 1.5; }
+
+/* ③④ 부족/강점 오행 카드 */
+.section-card { width: 100%; background: #fff; border-radius: 15px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 2px solid #E5D9F2; }
+.section-card.weak { border-color: #FFC1D1; }
+.section-title { font-size: 18px; font-weight: bold; text-align: center; margin-bottom: 15px; line-height: 1.4; }
+.section-title.weak-title { color: #FF3366; }
+.section-title.strong-title { color: #7B61FF; }
+.catch-line { text-align: center; font-size: 13px; font-style: italic; margin-bottom: 14px; opacity: 0.85; }
+.catch-line.weak-catch { color: #FF3366; }
+.nb { white-space: nowrap; }
+.catch-line.strong-catch { color: #7B61FF; }
+.sub-block { border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; font-size: 14px; line-height: 1.55; }
+.sub-block:last-child { margin-bottom: 0; }
+.sub-block .sub-label { font-weight: bold; display: block; margin-bottom: 6px; font-size: 14px; }
+.sub-block.pink { background: #FFF0F5; }
+.sub-block.pink .sub-label { color: #FF3366; }
+.sub-block.blue { background: #F4FAFF; border: 2px dashed #90CAF9; }
+.sub-block.blue .sub-label { color: #1976D2; }
+
+/* ⑤ SSAFY 활동 추천 */
+.recommend-box { width: 100%; background: #F4FAFF; border-radius: 15px; padding: 20px; margin-bottom: 20px; border: 2px dashed #90CAF9; }
+.recommend-title { font-size: 18px; color: #1976D2; margin-bottom: 4px; text-align: center; font-weight: bold; }
+.activity-subtitle { font-size: 13px; color: #1976D2; text-align: center; margin-bottom: 14px; opacity: 0.85; }
+.recommend-item { background: #fff; padding: 12px; border-radius: 10px; margin-bottom: 8px; font-size: 13px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); display: flex; align-items: flex-start; line-height: 1.5; }
+.recommend-item > span { font-size: 24px; margin-right: 12px; margin-top: 2px; flex-shrink: 0; }
+.recommend-item:last-child { margin-bottom: 0; }
+
+/* ⑥ CTA */
+.buff-confirm { text-align: center; font-size: 14px; color: #7B61FF; font-weight: bold; background: #F4FAFF; padding: 10px; border-radius: 10px; margin-bottom: 14px; opacity: 0; transform: translateY(6px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.buff-confirm.show { opacity: 1; transform: translateY(0); }
+.cta-btn { width: 100%; padding: 20px; background: linear-gradient(135deg, #7B61FF 0%, #9B5CF6 55%, #FF3366 130%); color: #fff; border: none; border-radius: 15px; font-size: 18px; font-weight: bold; cursor: pointer; text-decoration: none; text-align: center; display: block; margin-bottom: 30px; box-shadow: 0 8px 22px rgba(123, 97, 255, 0.4); animation: pulse 1.8s infinite; }
+@keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(123, 97, 255, 0.55); } 70% { transform: scale(1.03); box-shadow: 0 0 0 14px rgba(123, 97, 255, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(123, 97, 255, 0); } }
+
+/* ⑦ 취업 성공을 위한 나의 부적 */
+.talisman-title { font-size: 18px; font-weight: bold; text-align: center; margin-bottom: 15px; color: #7B61FF; }
+.card-container { perspective: 1000px; width: 240px; height: 375px; margin: 0 auto 40px auto; cursor: pointer; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); transform-style: preserve-3d; }
+.card-container.flipped .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 15px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 5px 15px rgba(0,0,0,0.15); padding: 20px; }
+.flip-card-front { background: #FFD54F; border: 4px dashed #FFF; }
+.flip-card-front h3 { color: #D84315; font-size: 22px; margin-top: 10px; }
+.flip-card-front p { margin-top: 10px; font-size: 14px; color: #555; background: rgba(255,255,255,0.6); padding: 5px 10px; border-radius: 20px; }
+.flip-card-back { background: #FF3366; color: #fff; transform: rotateY(180deg); border: 4px solid #FFF; }
+.flip-card-back h2 { font-size: 20px; margin-bottom: 12px; line-height: 1.3; }
+.flip-card-back p { font-size: 13px; line-height: 1.55; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px; word-break: keep-all; }
+.charm-closing { margin-top: 12px; font-size: 15px; font-weight: bold; letter-spacing: -0.4px; line-height: 1.45; word-break: keep-all; }
+
+.container.on-result .floating-emoji { display: none; }
+.floating-emoji { position: absolute; font-size: 30px; opacity: 0.6; animation: float 3s ease-in-out infinite; z-index: 0; pointer-events: none; }
+@keyframes float { 0% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(10deg); } 100% { transform: translateY(0px) rotate(0deg); } }
+
+/* ===== v4: 공유 영역 ===== */
+.share-box { width: 100%; margin: -12px 0 30px; text-align: center; }
+.share-title { font-size: 14px; color: #777; font-weight: bold; margin-bottom: 10px; }
+.share-btn { width: 100%; padding: 14px; flex-direction: row !important; justify-content: center; border: none; border-radius: 12px; font-size: 14px; font-weight: bold; cursor: pointer; font-family: 'Pretendard', sans-serif; display: flex; flex-direction: column; align-items: center; gap: 4px; transition: transform 0.1s ease; }
+.share-btn:active { transform: scale(0.94); }
+.share-btn:focus-visible { outline: 3px solid #7B61FF; outline-offset: 2px; }
+.share-btn .ico { font-size: 22px; line-height: 1; }
+.share-btn.image { background: #fff; color: #5B45D6; border: 2px solid #CFC3FF; } /* CTA와 경쟁하지 않도록 보조 버튼 톤 */
+.toast { position: fixed; left: 50%; bottom: 40px; transform: translateX(-50%) translateY(20px); background: rgba(30,30,30,0.92); color: #fff; padding: 12px 18px; border-radius: 999px; font-size: 14px; opacity: 0; pointer-events: none; transition: all 0.3s ease; z-index: 300; white-space: nowrap; }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.img-modal { position: fixed; inset: 0; background: rgba(20,10,40,0.75); z-index: 250; display: flex; justify-content: center; align-items: center; padding: 20px; }
+.img-modal[hidden] { display: none; }
+.img-modal-inner { background: #fff; border-radius: 18px; padding: 16px; max-width: 380px; width: 100%; text-align: center; max-height: 92vh; overflow-y: auto; }
+.img-modal-inner img { width: 100%; border-radius: 12px; display: block; box-shadow: 0 4px 14px rgba(0,0,0,0.12); }
+.img-modal-inner .hint { font-size: 13px; color: #666; margin: 12px 0; line-height: 1.5; }
+.img-modal-inner .row { display: flex; gap: 8px; }
+.img-modal-inner .row button { flex: 1; padding: 13px; border: none; border-radius: 12px; font-size: 15px; font-weight: bold; cursor: pointer; font-family: 'Pretendard', sans-serif; }
+.img-modal-inner .primary { background: #7B61FF; color: #fff; }
+.img-modal-inner .ghost { background: #F1ECFF; color: #5B45D6; }
+@media (prefers-reduced-motion: reduce) { .toast, .share-btn { transition: none; } }
+.tie-note { font-size: 12px; color: #666; background: #FAF7FF; border-radius: 10px; padding: 9px 10px; margin-top: 6px; line-height: 1.6; text-align: center; word-break: keep-all; }
+.tie-note[hidden] { display: none; }
+.tie-note b { color: #7B61FF; }
+[role="button"]:focus-visible, .cta-btn:focus-visible, .start-btn:focus-visible { outline: 3px solid #7B61FF; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .cta-btn, .floating-emoji, .loading-text { animation: none; } }
+/* v10: 차트 안에서 바로 SSAFY 버프 */
+.chart-desc { text-align: center; font-size: 14px; margin-top: 15px; color: #7B61FF; font-weight: bold; background: #F4FAFF; padding: 10px; border-radius: 10px; line-height: 1.6; }
+.buff-btn { display: block; width: 100%; margin-top: 10px; padding: 14px; border: none; border-radius: 12px; font-size: 16px; font-weight: 800; font-family: 'Pretendard', sans-serif; cursor: pointer; color: #7A3E00; background: repeating-linear-gradient(45deg, #FFD54F, #FFD54F 12px, #FFCA28 12px, #FFCA28 24px); box-shadow: 0 6px 16px rgba(255, 179, 0, 0.35); animation: buffBtnPulse 1.6s ease-in-out infinite; }
+.buff-btn[hidden] { display: none; }
+.buff-btn.done { animation: none; background: #fff; color: #7B61FF; border: 2px solid #CFC3FF; box-shadow: none; font-size: 14px; font-weight: 700; padding: 11px; }
+.buff-btn:focus-visible { outline: 3px solid #7B61FF; outline-offset: 3px; }
+@keyframes buffBtnPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+.bar-bg.charged { animation: barGlow 1.2s ease-out 1; }
+@keyframes barGlow { 0% { box-shadow: 0 0 0 0 rgba(255, 202, 40, 0.9); } 100% { box-shadow: 0 0 0 10px rgba(255, 202, 40, 0); } }
+.bar-desc.pop { animation: valPop 0.4s ease-out 1; }
+@keyframes valPop { 0% { transform: scale(1); } 50% { transform: scale(1.35); } 100% { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .buff-btn, .bar-bg.charged, .bar-desc.pop { animation: none; } }
